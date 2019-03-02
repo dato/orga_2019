@@ -16,7 +16,8 @@ api() {
       local verb="$1"; shift
       local endpoint="$1"; shift
       # apt install httpie
-      http -h -a "$USER:$TOKEN" -I "$verb" "$API/$endpoint" "$@"
+      http --check-status --ignore-stdin --headers \
+           --auth "$USER:$TOKEN" "$verb" "$API/$endpoint" "$@"
 }
 
 get() {
