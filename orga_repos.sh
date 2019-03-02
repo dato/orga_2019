@@ -34,7 +34,22 @@ put() {
 
 while read user repo; do
     url="https://github.com/fiubatps/$repo"
-    post orgs/fiubatps/repos name:="\"$repo\"" private:=true team_id:="$TEAM_ID"
-    git -C ../orga_alu push "$url" master
+
+    # Crear el repositorio.
+    post orgs/fiubatps/repos name:="\"$repo\""   \
+                             private:=true       \
+                             has_wiki:=false     \
+                             allow_squash_merge:=false \
+                             allow_rebase_merge:=false
+
+    # Dar permisos al equipo docente. (En el futuro, si hay múltiples
+    # correctores, otorgar a este equipo acceso "push" en lugar de
+    # "admin", y crear un sub-equipo separado para administradores.)
+    put "teams/$TEAM_ID/repos/fiubatps/$repo" permission:='"admin"'
+
+    # Enviar el esqueleto.
+    git push "$url" origin/alu_readme:refs/heads/master
+
+    # Enviar la invitación.
     put "repos/fiubatps/$repo/collaborators/$user"
 done < repos_beta1.txt
