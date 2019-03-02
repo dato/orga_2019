@@ -48,7 +48,7 @@ while read user repo; do
     put "teams/$TEAM_ID/repos/fiubatps/$repo" permission:='"admin"'
 
     # Enviar el esqueleto.
-    git push "$url" origin/alu_readme:refs/heads/master
+    git push "$url" origin/skel_master:refs/heads/master
 
     # Enviar la invitación.
     put "repos/fiubatps/$repo/collaborators/$user"
