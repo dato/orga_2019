@@ -1,0 +1,8 @@
+augusjoa	orga_2019_beta1_al
+luciakasman	orga_2019_beta1_lk
+marcosriarte	orga_2019_beta1_mr
+mendezmariano	orga_2019_beta1_mm
+meneldir	orga_2019_beta1_pm
+mlafroce	orga_2019_beta1_ml
+ncontinanza	orga_2019_beta1_nc
+tomasbustamante	orga_2019_beta1_tb

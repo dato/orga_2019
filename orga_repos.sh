@@ -36,4 +36,4 @@ while read user repo; do
     post orgs/fiubatps/repos name:="\"$repo\"" private:=true team_id:="$TEAM_ID"
     git -C ../orga_alu push "$url" master
     put "repos/fiubatps/$repo/collaborators/$user"
-done < repos_beta0.txt
+done < repos_beta1.txt
