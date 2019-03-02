@@ -13,8 +13,7 @@ TEAM_ID=3141587
 TEAM_SLUG="orga"
 
 # Autenticación (con API token) para el bot de la administración.
-USER="adeobot"
-TOKEN=$(< ~/.adeobot.tok)
+API_TOKEN=$(< ~/.fiubatps.tok)
 
 # Otras variables.
 CHECK_ID="autograder"
@@ -24,7 +23,7 @@ api() {
       local endpoint="$1"; shift
       # apt install httpie
       http --check-status --ignore-stdin --headers \
-           --auth "$USER:$TOKEN" "$verb" "$API/$endpoint" "$@"
+           --auth ":$API_TOKEN" "$verb" "$API/$endpoint" "$@"
 }
 
 get() {
