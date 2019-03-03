@@ -8,6 +8,12 @@ LDFLAGS := -m32
 
 all: btest fshow ishow
 
+test: btest
+	./btest
+
+grade:
+	./driver.pl
+
 btest: btest.o bits.o decl.o tests.o
 fshow: fshow.c
 ishow: ishow.c
