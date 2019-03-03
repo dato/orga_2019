@@ -42,7 +42,7 @@ sub usage {
 # Main routine
 ##############
 my $login = getlogin() || (getpwuid($<))[0] || "unknown";
-my $tmpdir = "/var/tmp/datalab.$login.$$";
+my $tmpdir = "/tmp/datalab.$login.$$";
 my $diemsg = "The files are in $tmpdir.";
 
 my $driverfiles;
@@ -394,7 +394,11 @@ if ($nickname) {
 
 # Clean up and exit
 clean ($tmpdir);
-exit;
+if ($total_c_points < $total_c_rating) {
+    exit 1;
+} else {
+    exit 0;
+}
 
 ##################
 # Helper functions
